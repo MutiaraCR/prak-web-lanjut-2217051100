@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/profile', [ProfileController::class, 'profile']);
+Route::get('/profile', [ProfileController::class, 'profile']);
 
-Route::get('/profile/{nama}/{kelas}/{npm}', 
-[ProfileController::class, 'profile']);
+// Route::get('/profile/{nama}/{kelas}/{npm}', 
+// [ProfileController::class, 'profile']);

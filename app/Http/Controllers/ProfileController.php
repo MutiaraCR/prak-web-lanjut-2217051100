@@ -10,23 +10,23 @@ class ProfileController extends Controller
     //     return view('profile');
     // }
 
-    // public function profile()
-    // {
-    //     $data = [
-    //         'nama' => 'Mutiara Cintia Rainy',
-    //         'kelas' => 'B',
-    //         'npm' => '2217051100'
-    //     ];
-    //     return view('profile', $data);
-    // }
-
-    public function profile($nama= "", $kelas= "", $npm="")
+    public function profile()
     {
         $data = [
-            'nama' => $nama,
-            'kelas' => $kelas,
-            'npm' => $npm
+            'nama' => 'Mutiara Cintia Rainy',
+            'kelas' => 'B',
+            'npm' => '2217051100'
         ];
         return view('profile', $data);
     }
+
+    // public function profile($nama= "", $kelas= "", $npm="")
+    // {
+    //     $data = [
+    //         'nama' => $nama,
+    //         'kelas' => $kelas,
+    //         'npm' => $npm
+    //     ];
+    //     return view('profile', $data);
+    // }
 }
