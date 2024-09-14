@@ -1,0 +1,61 @@
+/* General body styling with background */
+body {
+    background-image: url('../img/bg1.jpeg'); /* Update the path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+/* Form container styling */
+.form-container {
+    background-color: rgba(172, 206, 166, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    width: 30%;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form input fields styling */
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Submit button styling */
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #185818; /* Adjust to your theme color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container button:hover {
+    background-color: #0d2e0d; /* Darker shade on hover */
+}
+
+/* Centering the content */
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

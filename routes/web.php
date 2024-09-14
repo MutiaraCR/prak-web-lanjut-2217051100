@@ -1,7 +1,8 @@
 <?php
 
-use App\http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\http\Controllers\ProfileController;
+use App\http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// PRAKTIKUM 2
+
 Route::get('/profile', [ProfileController::class, 'profile']);
 
 // Route::get('/profile/{nama}/{kelas}/{npm}', 
 // [ProfileController::class, 'profile']);
+
+
+//PRAKTIKUM 3
+
+Route::get('/user/profile', [UserController::class, 'profile']);
+
+Route::get('/user/create', [UserController::class, 'create']);
+
+Route::post('/user/store', [UserController::class, 'store'])->name('user.store');

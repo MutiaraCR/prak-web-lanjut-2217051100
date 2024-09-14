@@ -6,19 +6,21 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    // PRAKTIKUM 2
+
     // public function profile(){
     //     return view('profile');
     // }
 
-    public function profile()
-    {
-        $data = [
-            'nama' => 'Mutiara Cintia Rainy',
-            'kelas' => 'B',
-            'npm' => '2217051100'
-        ];
-        return view('profile', $data);
-    }
+    // public function profile()
+    // {
+    //     $data = [
+    //         'nama' => 'Mutiara Cintia Rainy',
+    //         'kelas' => 'B',
+    //         'npm' => '2217051100'
+    //     ];
+    //     return view('profile', $data);
+    // }
 
     // public function profile($nama= "", $kelas= "", $npm="")
     // {
@@ -29,4 +31,6 @@ class ProfileController extends Controller
     //     ];
     //     return view('profile', $data);
     // }
+
+    // PRAKTIKUM 3
 }
