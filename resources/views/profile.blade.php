@@ -66,14 +66,14 @@
             <td>{{ $nama }}</td>
           </tr>
           <tr>
-            <td>Kelas</td>
-            <td> : </td>
-            <td>{{ $kelas }}</td>
-          </tr>
-          <tr>
             <td>NPM</td>
             <td> : </td>
             <td>{{ $npm }}</td>
+          </tr>
+          <tr>
+            <td>Kelas</td>
+            <td> : </td>
+            <td>{{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</td>
           </tr>
         </table>
       </div>
