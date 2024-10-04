@@ -8,9 +8,9 @@ class ProfileController extends Controller
 {
     // PRAKTIKUM 2
 
-    // public function profile(){
-    //     return view('profile');
-    // }
+    public function profile(){
+        return view('profile');
+    }
 
     // public function profile()
     // {

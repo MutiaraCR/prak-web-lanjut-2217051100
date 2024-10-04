@@ -10,8 +10,16 @@ body {
     padding: 0;
 }
 
+/* Centering the content */
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 /* Form container styling */
-.form-container {
+.form-container, .profile-container {
     background-color: rgba(172, 206, 166, 0.8);
     padding: 30px;
     border-radius: 15px;
@@ -21,22 +29,14 @@ body {
 }
 
 /* Form input fields styling */
-.form-container label {
+.form-container label, .profile-table td {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
+    color: black; /* Use black text for better contrast */
 }
 
-.form-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.form-container select {
+.form-container input, .form-container select {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -61,10 +61,47 @@ body {
     background-color: #0d2e0d; /* Darker shade on hover */
 }
 
-/* Centering the content */
-.d-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* Styling for tables */
+.table {
+    color: whitesmoke;
+    background-color: rgba(40, 40, 40, 0.8); /* Background semi transparan untuk tabel */
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc; /* Border ringan */
+}
+
+.table th {
+    background-color: rgba(172, 206, 166, 0.8); /* Warna biru tua untuk header tabel */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(100, 100, 100, 0.5); /* Striping baris */
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(60, 60, 60, 0.9); /* Hover effect */
+}
+
+/* Custom button hover effects */
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-custom {
+    background-color: #185818; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    border: none; /* Menghilangkan border default */
+    border-radius: 5px; /* Sudut melengkung */
+    padding: 10px 15px; /* Padding tombol */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    transition: background-color 0.3s; /* Efek transisi pada hover */
+}
+
+.btn-custom:hover {
+    background-color: #0d2e0d; /* Warna saat hover */
 }
