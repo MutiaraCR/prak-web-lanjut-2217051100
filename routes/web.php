@@ -31,6 +31,10 @@ Route::get('/profile', [ProfileController::class, 'profile']);
 
 Route::get('/user/profile', [UserController::class, 'profile']);
 
-Route::get('/user/create', [UserController::class, 'create']);
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
 
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
+
+//PRAKTIKUM 5
+
+Route::get('/user', [UserController::class, 'index']);
