@@ -31,10 +31,14 @@ Route::get('/profile', [ProfileController::class, 'profile']);
 
 Route::get('/user/profile', [UserController::class, 'profile']);
 
-Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+Route::get('/user/create', [UserController::class, 'create'])->name('users.create');
 
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
 
 //PRAKTIKUM 5
 
 Route::get('/user', [UserController::class, 'index']);
+
+// PRAKTIKUM 6
+
+Route::get('/show/{id}', [UserController::class, 'show'])->name('users.show');
