@@ -3,7 +3,7 @@
 @section('content')
 <div class="d-flex">
     <div class="form-container">
-    <form action="{{ route('user.store') }}" method="POST" style="background-color: rgba(172, 206, 166, 0.8); padding: 30px; border-radius: 15px;">
+    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <label for="nama">Nama: </label>
@@ -28,6 +28,9 @@
             @foreach($errors->get('kelas_id') as $msg)
                 <p class="text-danger">{{ $msg }}</p>
             @endforeach
+
+            <label for="foto">Foto: </label>
+            <input type="file" id="foto" name="foto"><br>
 
             <button type="submit">Submit</button>
         </form>

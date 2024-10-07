@@ -61,47 +61,87 @@ body {
     background-color: #0d2e0d; /* Darker shade on hover */
 }
 
-/* Styling for tables */
-.table {
-    color: whitesmoke;
-    background-color: rgba(40, 40, 40, 0.8); /* Background semi transparan untuk tabel */
-    border-collapse: collapse;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+/* Tabel list user styling */
+#user-table {
+    width: 100%; /* Memastikan tabel mengambil lebar penuh container */
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Mengubah latar belakang tabel menjadi putih semi-transparan */
+    border-collapse: collapse; /* Menghilangkan jarak antar border */
+    border-radius: 10px; /* Membuat sudut tabel membulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan efek bayangan */
 }
 
-.table th, .table td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ccc; /* Border ringan */
+#user-table th, #user-table td {
+    padding: 12px; /* Memberikan padding agar konten lebih rapi */
+    text-align: left; /* Menyelaraskan teks ke kiri */
+    border: 1px solid #ccc; /* Memberikan border pada sel */
+    color: black; /* Warna teks hitam */
 }
 
-.table th {
-    background-color: rgba(172, 206, 166, 0.8); /* Warna biru tua untuk header tabel */
+#user-table th {
+    background-color: rgba(172, 206, 166, 0.8); /* Background header tabel */
+    font-weight: bold;
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(100, 100, 100, 0.5); /* Striping baris */
+#user-table tbody tr:nth-of-type(odd) {
+    background-color: rgba(240, 240, 240, 0.8); /* Warna striping baris */
 }
 
-.table-hover tbody tr:hover {
-    background-color: rgba(60, 60, 60, 0.9); /* Hover effect */
+#user-table tbody tr:hover {
+    background-color: rgba(200, 200, 200, 0.9); /* Warna saat baris di-hover */
 }
 
-/* Custom button hover effects */
-.btn:hover {
-    opacity: 0.9;
-}
-
+/* Custom button styling untuk aksi */
 .btn-custom {
-    background-color: #185818; /* Warna latar belakang tombol */
+    background-color: #185818; /* Warna dasar tombol */
     color: white; /* Warna teks tombol */
-    border: none; /* Menghilangkan border default */
-    border-radius: 5px; /* Sudut melengkung */
-    padding: 10px 15px; /* Padding tombol */
-    text-decoration: none; /* Menghilangkan garis bawah */
-    transition: background-color 0.3s; /* Efek transisi pada hover */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px; /* Padding tombol untuk ukuran yang lebih proporsional */
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .btn-custom:hover {
-    background-color: #0d2e0d; /* Warna saat hover */
+    background-color: #0d2e0d; /* Warna saat tombol di-hover */
 }
+
+/* Styling untuk profil tanpa tabel */
+#profile-container {
+    background-color: rgba(172, 206, 166, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    height: 50%;
+    width: 30%;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow around profile picture */
+  }
+#profile-table {
+    margin: auto;
+    text-align: left;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    border: none; /* Menghilangkan border default */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+#profile-table td {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    border: none; /* Menghilangkan border default */
+  }
+#profile-table td:first-child {
+    text-align: right;
+  }
