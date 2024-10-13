@@ -37,8 +37,18 @@ Route::post('/user/store', [UserController::class, 'store'])->name('user.store')
 
 //PRAKTIKUM 5
 
-Route::get('/user', [UserController::class, 'index']);
+Route::get('/user', [UserController::class, 'index'])->name('user.list');
 
 // PRAKTIKUM 6
 
 Route::get('/show/{id}', [UserController::class, 'show'])->name('users.show');
+
+// PRAKTIKUM 7
+
+Route::put('/user/{id}', [UserController::class, 'update'])->name('users.update');
+
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+Route::get('/user/{id}', [UserController::class, 'show'])->name('users.show');

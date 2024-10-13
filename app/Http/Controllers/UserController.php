@@ -140,6 +140,50 @@ class UserController extends Controller
             ];
     
             return view('profile', $data);
-        }    
+        }   
+        
+        // PRAKTIKUM 7 (Kelas tidak ditemukan)
+        // public function show($id) {
+        //     $user = $this->userModel::findOrFail($id);
+        //     $kelas = Kelas::find($user->kelas_id);
 
+        //     $title = 'Detail '.$user->nama;
+
+        //     return view('profile', compact('user', 'kelas', 'title'));
+        // }   
+
+        public function edit($id) {
+            $user = $this->userModel::findOrFail($id);
+            $kelasModel = new Kelas();
+            $kelas = $kelasModel->getKelas();
+            
+            $title = 'Edit User';
+
+            return view('edit_user', compact('user', 'kelas', 'title'));
+        }
+
+        public function update (Request $request, $id) {
+            $user = $this->userModel::findOrFail($id);
+            
+            $user->nama = $request->nama;
+            $user->npm = $request->npm;
+            $user->kelas_id = $request->kelas_id;
+
+            if ($request->hasFile('foto')) {
+                $fileName = time() . '.' . $request->foto->hashName();
+                $request->foto->move(public_path('upload/img'), $fileName);
+                $user->foto = $fileName;
+            }
+
+            $user->save();
+
+            return redirect()->route('user.list')->with('success', 'User updated successfully');
+        }
+
+        public function destroy($id) {
+            $user = $this->userModel::findOrFail($id);
+            $user->delete();
+
+            return redirect()->to('user')->with('success', 'User has been deleted successfully');
+        }
 }
