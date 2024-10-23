@@ -52,3 +52,7 @@ Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('users.edit
 Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 Route::get('/user/{id}', [UserController::class, 'show'])->name('users.show');
+
+// PRAKTIKUM 8
+
+Route::get('/', [UserController::class, 'index'])->name('user.list');
