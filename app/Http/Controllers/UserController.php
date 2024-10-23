@@ -9,12 +9,7 @@ use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
-    // public function create(){
-    //     return view('create_user', [
-    //         'kelas' => Kelas::all(),
-    //     ]);
-    // }
-
+    // PRAKTIKUM 5
     public $userModel;
     public $kelasModel;
 
@@ -46,8 +41,16 @@ class UserController extends Controller
         return view ('create_user', $data);
     }
 
+    // PRAKTIKUM 2 & 3
     // public function store(){
     //     return view('profile');
+    // }
+
+    // PRAKTIKUM 3 & 4
+    // public function create(){
+    //     return view('create_user', [
+    //         'kelas' => Kelas::all(),
+    //     ]);
     // }
 
     // public function store(Request $request){
@@ -64,6 +67,7 @@ class UserController extends Controller
     //     return view('profile', $data);
     // }
 
+    // PRAKTIKUM 4
     // public function store(UserRequest $request)
     // {
     //     $validatedData = $request->validate([
@@ -94,44 +98,74 @@ class UserController extends Controller
     //     return redirect()->to('/user');
     // }
 
-        public function store(Request $request)
-        {
-            // Validasi input
-            $request->validate([
-            'nama' => 'required|string|max:255',
-            'npm' => 'required|string|max:255',
-            'kelas_id' => 'required|integer',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi untuk foto
-            ]);
+        // PRAKTIKUM 6
+        // public function store(Request $request)
+        // {
+        //     // Validasi input
+        //     $request->validate([
+        //     'nama' => 'required|string|max:255',
+        //     'npm' => 'required|string|max:255',
+        //     'kelas_id' => 'required|integer',
+        //     'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi untuk foto
+        //     ]);
 
-            // Meng-handle upload foto
-            if ($request->hasFile('foto')) {
-                $foto = $request->file('foto');
+        //     // Meng-handle upload foto
+        //     if ($request->hasFile('foto')) {
+        //         $foto = $request->file('foto');
 
-                // Menghasilkan nama file yang di-hash beserta ekstensinya
-                $foto_name = $foto->hashName(); 
+        //         // Menghasilkan nama file yang di-hash beserta ekstensinya
+        //         $foto_name = $foto->hashName(); 
                 
-                // Memindahkan file ke folder public/upload/img menggunakan forward slash
-                $foto->move(public_path('upload/img'), $foto_name);
+        //         // Memindahkan file ke folder public/upload/img menggunakan forward slash
+        //         $foto->move(public_path('upload/img'), $foto_name);
 
-                // Simpan hanya nama file di database, bukan path lengkap
-                $fotoPath = $foto_name;
-            } else {
-                // Jika tidak ada file yang diupload, set fotoPath menjadi null atau default
-                $fotoPath = null;
-            }
+        //         // Simpan hanya nama file di database, bukan path lengkap
+        //         $fotoPath = $foto_name;
+        //     } else {
+        //         // Jika tidak ada file yang diupload, set fotoPath menjadi null atau default
+        //         $fotoPath = null;
+        //     }
 
-            // Menyimpan data ke database termasuk path foto
-            $this->userModel->create([
-                'nama' => $request->input('nama'),
-                'npm' => $request->input('npm'),
-                'kelas_id' => $request->input('kelas_id'),
-                'foto' => $fotoPath, // Menyimpan path foto
+        //     // Menyimpan data ke database termasuk path foto
+        //     $this->userModel->create([
+        //         'nama' => $request->input('nama'),
+        //         'npm' => $request->input('npm'),
+        //         'kelas_id' => $request->input('kelas_id'),
+        //         'foto' => $fotoPath, // Menyimpan path foto
+        //     ]);
+
+        //     return redirect()->to('/user')->with('success', 'User berhasil ditambahkan');
+        // }
+
+        // PRAKTIKUM 8
+        public function store (Request $request){
+            // Validasi Input
+            $request->validate([
+                'nama' => 'required',
+                'npm' => 'required',
+                'kelas_id' => 'required',
+                'foto' => 'image|file|max:2048', //Validasi foto
             ]);
 
-            return redirect()->to('/user')->with('success', 'User berhasil ditambahkan');
+            // Proses upload foto
+            if ($request->hasFile('foto')){
+                $file = $request->file('foto');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->storeAs('uploads', $filename); // Menyimpan file ke storage
+
+                // Simpan data user ke database
+                $this->userModel->create([
+                    'nama' => $request->input('nama'),
+                    'npm' => $request->input('npm'),
+                    'kelas_id' => $request->input('kelas_id'),
+                    'foto' => $filename, // Menyimpan nama file ke database
+                ]);
+
+                return redirect()->to('/')->with('success', 'User Berhasil dibuat');
+            }
         }
 
+        // PRAKTIKUM 6 & 7
         public function show($id) {
             $user = $this->userModel->getUser($id); // Mengambil user berdasarkan ID
             $data = [
@@ -177,13 +211,13 @@ class UserController extends Controller
 
             $user->save();
 
-            return redirect()->route('user.list')->with('success', 'User updated successfully');
+            return redirect()->route('user.list')->with('success', 'Informasi user berhasil diubah');
         }
 
         public function destroy($id) {
             $user = $this->userModel::findOrFail($id);
             $user->delete();
 
-            return redirect()->to('user')->with('success', 'User has been deleted successfully');
+            return redirect()->to('user')->with('success', 'User berhasil di hapus');
         }
 }

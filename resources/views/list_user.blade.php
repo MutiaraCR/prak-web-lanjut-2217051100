@@ -2,6 +2,19 @@
 
 @section('content')
 <div class="container mt-4">
+    @if(session('success'))
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+                title: "Success!",
+                text: "{{ session()->pull('success') }}",
+                icon: "success",
+                confirmButtonText: "OK"
+            });
+        });
+    </script>
+    @endif
+
     <!-- Tombol Tambah User -->
     <div class="text-end mb-3">
         <a href="{{ route('users.create') }}" class="btn btn-custom">Tambah User</a>
@@ -29,7 +42,7 @@
                         <td>{{ $user->npm }}</td>
                         <td>{{ $user->nama_kelas }}</td>
                         <td>
-                            <img src="{{ asset('upload/img/' . $user->foto) }}" alt="User Photo" width="100">
+                            <img src="{{ asset('storage/uploads/' . $user->foto) }}" alt="User Photo" width="100">
                         </td>
                         <td>
                             <!-- View -->

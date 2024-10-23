@@ -35,7 +35,7 @@
                 <label for="foto">Foto</label>
                 <input type="file" id="foto" name="foto" class="form-control">
                 @if($user->foto)
-                    <img src="{{ asset('upload/img/' . $user->foto) }}" alt="User Photo" width="100" class="mt-2">
+                    <img src="{{ asset('storage/uploads/' . $user->foto) }}" alt="User Photo" width="100" class="mt-2">
                 @endif
             </div><br>
             <button type="submit">Update</button>
