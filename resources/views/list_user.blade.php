@@ -27,7 +27,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nama</th>
-                    <th>NPM</th>
+                    <!-- <th>NPM</th> -->
                     <th>Kelas</th>
                     <th>Foto</th>
                     <th>Aksi</th>
@@ -39,7 +39,7 @@
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->nama }}</td>
-                        <td>{{ $user->npm }}</td>
+                        <!-- <td>{{ $user->npm }}</td> -->
                         <td>{{ $user->nama_kelas }}</td>
                         <td>
                             <img src="{{ asset('storage/uploads/' . $user->foto) }}" alt="User Photo" width="100">

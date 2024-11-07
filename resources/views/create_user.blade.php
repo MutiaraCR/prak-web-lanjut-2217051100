@@ -12,11 +12,11 @@
                 <p class="text-danger">{{ $msg }}</p>
             @endforeach
 
-            <label for="npm">NPM: </label>
+            <!-- <label for="npm">NPM: </label>
             <input type="text" id="npm" name="npm">
             @foreach($errors->get('npm') as $msg)
                 <p class="text-danger">{{ $msg }}</p>
-            @endforeach
+            @endforeach -->
 
             <label for="kelas_id">Kelas: </label>
             <select name="kelas_id" id="kelas_id">
@@ -26,6 +26,36 @@
                 @endforeach
             </select>
             @foreach($errors->get('kelas_id') as $msg)
+                <p class="text-danger">{{ $msg }}</p>
+            @endforeach
+
+            <label for="jurusan">Jurusan: </label>
+            <select name="jurusan" id="jurusan" required>
+                <option value=""></option>
+                <option value="fisika">Fisika</option>
+                <option value="kimia">Kimia</option>
+                <option value="biologi">Biologi</option>
+                <option value="matematika">Matematika</option>
+                <option value="ilmu komputer">Ilmu Komputer</option>
+            </select>
+            @foreach($errors->get('jurusan') as $msg)
+                <p class="text-danger">{{ $msg }}</p>
+            @endforeach
+
+            <label for="semester">Semester: </label>
+            <input type="number" id="semester" name="semester" min="1" max="14" value="{{ old('semester') }}">
+            @foreach($errors->get('semester') as $msg)
+                <p class="text-danger">{{ $msg }}</p>
+            @endforeach
+
+            <label for="fakultas_id">Fakultas: </label>
+            <select name="fakultas_id" id="fakultas_id" required>
+                <option value=""></option>
+                @foreach($fakultas as $fakultasItem)
+                    <option value="{{ $fakultasItem->id }}">{{ $fakultasItem->nama_fakultas }}</option>
+                @endforeach
+            </select>
+            @foreach($errors->get('fakultas_id') as $msg)
                 <p class="text-danger">{{ $msg }}</p>
             @endforeach
 

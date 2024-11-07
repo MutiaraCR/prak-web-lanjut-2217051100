@@ -13,16 +13,21 @@ class UserModel extends Model
     protected $guarded = ['id'];
     protected $fillable = [
         'nama',
-        'npm',
+        //'npm',
         'kelas_id',
+        'jurusan',
+        'semester',
+        'fakultas_id',
         'foto',
     ];
+    
 
     // PRAKTIKUM 6
     public function getUser($id = null){
         $query = $this->with('kelas')
                     ->join('kelas', 'kelas.id', '=', 'user.kelas_id')
-                     ->select('user.*', 'kelas.nama_kelas');
+                    ->join('fakultas', 'fakultas.id', '=', 'user.fakultas_id')
+                    ->select('user.*', 'kelas.nama_kelas', 'fakultas.nama_fakultas');
                      
         if ($id != null){
             return $query->where('user.id', $id)->first();
@@ -42,4 +47,8 @@ class UserModel extends Model
     public function kelas(){
         return $this->belongsTo(Kelas::class, 'kelas_id'); 
     }
+
+    public function fakultas() {
+        return $this->belongsTo(Fakultas::class, 'fakultas_id');
+    }    
 }
