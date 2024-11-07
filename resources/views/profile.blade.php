@@ -11,14 +11,29 @@
           <td>{{ $user->nama }}</td>
         </tr>
         <tr>
+          <td>Semester</td>
+          <td> : </td>
+          <td>{{ $user->semester }}</td>
+        </tr>
+        <!-- <tr>
           <td>NPM</td>
           <td> : </td>
           <td>{{ $user->npm }}</td>
-        </tr>
+        </tr> -->
         <tr>
           <td>Kelas</td>
           <td> : </td>
           <td>{{ $user->nama_kelas ?? 'Kelas tidak ditemukan' }}</td>
+        </tr>
+        <tr>
+          <td>Fakultas</td>
+          <td> : </td>
+          <td>{{ $user->nama_fakultas ?? 'Fakultas tidak ditemukan' }}</td>
+        </tr>
+        <tr>
+          <td>Jurusan</td>
+          <td> : </td>
+          <td>{{ $user->jurusan }}</td>
         </tr>
       </table>
     </div>

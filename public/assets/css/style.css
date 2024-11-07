@@ -4,6 +4,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
     color: whitesmoke;
     margin: 0;
@@ -31,7 +32,7 @@ body {
 /* Form input fields styling */
 .form-container label, .profile-table td {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     font-weight: bold;
     color: black; /* Use black text for better contrast */
 }
@@ -39,7 +40,7 @@ body {
 .form-container input, .form-container select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: none;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -111,7 +112,7 @@ body {
     background-color: rgba(172, 206, 166, 0.8);
     padding: 30px;
     border-radius: 15px;
-    height: 50%;
+    height: 60%;
     width: 30%;
     margin: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
